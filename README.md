@@ -201,13 +201,3 @@ docker-compose logs -f db
 ## License
 
 This repository is provided as-is for learning and demo purposes.
-
----
-
-If you'd like, I can also:
-
-- Add a short CONTRIBUTING.md with local dev setup steps.
-- Add examples of curl commands for each endpoint.
-- Add a small Makefile or PowerShell script to simplify common tasks (build, up, down).
-
-Tell me which of these you'd like next.
