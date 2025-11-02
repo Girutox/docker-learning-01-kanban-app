@@ -1,0 +1,57 @@
+@if (sidebarHidden() || isMobileMediumSize()) {
+<div class="logo" @fadeInOut (click)="onLogoClick()">
+  @if (!isMobileMediumSize()) {
+  <img src="assets/logo-dark.svg" alt="Kanban logo">
+  } @else {
+  <img src="assets/logo-mobile.svg" alt="Kanban logo">
+  }
+</div>
+}
+<section class="title-section">
+  <div class="title-search-group">
+    @if (boardName() === '') {
+    <h1 class="choose-board-mobile">{{ isMobileMediumSize() ? '[Choose a board]' : ''}}</h1>
+    } @else {
+    <h1>{{boardName()}}</h1>
+    }
+
+    @if (isMobileMediumSize()) {
+    @if (isChevronDownVisible()) {
+    <app-icon-chevron-down (customClick)="onChevronClick()" />
+    } @else {
+    <app-icon-chevron-up (customClick)="onChevronClick()" />
+    }
+    }
+  </div>
+  <div class="last-section">
+    <!-- <app-custom-button mode="secondary" buttonSize="large" (customClick)="onTestFirebase()">
+      Test Firebase
+    </app-custom-button> -->
+    <app-custom-button mode="primary" buttonSize="large" [disabled]="isBoardEmpty()" (customClick)="onAddNewTask()">
+      @if (!isMobileMediumSize()) {
+      + Add New Task
+      } @else {
+      <app-icon-add-task-mobile />
+      }
+    </app-custom-button>
+    @if (activeBoardId()) {
+    <div class="menu-ellipsis">
+      <div class="pseudo-button" (click)="onToggleFloatingCard()">
+        <app-icon-vertical-ellipsis />
+      </div>
+      @if (showFloatingCard()) {
+      <app-floating-card (hideCard)="onHideCard()">
+        <ul class="floating-card-list">
+          <li>
+            <button (click)="onEditBoard()">Edit Board</button>
+          </li>
+          <li class="delete-option">
+            <button (click)="onDeleteBoard()">Delete Board</button>
+          </li>
+        </ul>
+      </app-floating-card>
+      }
+    </div>
+    }
+  </div>
+</section>

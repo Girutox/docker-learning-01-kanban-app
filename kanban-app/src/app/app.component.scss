@@ -1,0 +1,63 @@
+@import '../styles/variables';
+
+.main-content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: auto;
+  background-color: $light-grey;
+}
+
+main {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: $light-grey;
+}
+
+:host {
+  display: flex;
+  height: 100%;
+}
+
+.loader-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+
+  p {
+    @include heading-l;
+    color: $white;
+  }
+
+  z-index: 1099;
+}
+
+.loader {
+  width: 55px;
+  aspect-ratio: 1;
+  --g1:conic-gradient(from  90deg at 3px  3px ,#0000 90deg,#fff 0);
+  --g2:conic-gradient(from -90deg at 22px 22px,#0000 90deg,#fff 0);
+  background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  animation: l7 1.5s infinite;
+
+  margin-left: -20px;
+}
+@keyframes l7 {
+  0%   {background-position:0    0   ,0 100%,100% 100% }
+  25%  {background-position:100% 0   ,0 100%,100% 100% }
+  50%  {background-position:100% 0   ,0 0   ,100% 100% }
+  75%  {background-position:100% 0   ,0 0   ,0    100% }
+  100% {background-position:100% 100%,0 0   ,0    100% }
+}

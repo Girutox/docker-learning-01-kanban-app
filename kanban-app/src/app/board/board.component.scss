@@ -1,0 +1,58 @@
+@import '../../styles/variables';
+
+:host {
+  flex-grow: 1;
+  justify-content: center;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  margin-right: 20px;
+}
+
+:host(.start-aligned) {
+  justify-content: stretch;
+  align-self: stretch;
+}
+
+.full-container {
+  flex-grow: 1;
+
+  display: flex;
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+h2 {
+  color: $medium-grey;
+}
+
+.empty-board-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.board-content {
+  display: flex;
+  gap: 20px;
+
+  height: 100%;
+}
+
+.custom-modal-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

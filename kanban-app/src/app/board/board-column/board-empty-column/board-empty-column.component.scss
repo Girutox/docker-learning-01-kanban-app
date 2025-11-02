@@ -1,0 +1,29 @@
+@import '../../../../styles/variables';
+
+:host {
+  background-color: #EAEFF9;
+
+  border-radius: 8px;
+
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+:host(.new-column) {
+  border: 1px dashed $main-purple;
+
+  transition: background-color 0.1s ease-in, color 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+
+    font-weight: bold;
+    color: $main-purple;
+    background-color: rgba($main-purple, 0.1);
+  }
+}

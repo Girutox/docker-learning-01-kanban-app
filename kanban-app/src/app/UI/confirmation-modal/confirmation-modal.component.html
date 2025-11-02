@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h2 class="custom-modal-title">{{title()}}</h2>
+</div>
+<div class="modal-body">
+  <p [innerHTML]="getStyledMessage()">
+    
+  </p>
+</div>
+<div class="modal-footer">
+  <app-custom-button [mode]="'destructive'" [size]="'large'" (customClick)="onDelete()">
+    Delete
+  </app-custom-button>
+  <app-custom-button [mode]="'primary'" [size]="'large'" (customClick)="onCancel()">
+    Cancel
+  </app-custom-button>
+</div>

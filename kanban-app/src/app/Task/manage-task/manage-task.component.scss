@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+.custom-modal-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.subtask-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask-section {
+  display: flex;
+  align-items: center;
+
+  input {
+    flex-grow: 1;
+  }
+
+  button {
+    padding: 0 10px;
+  }
+}
+
+.add-new-subtask-section {
+  button {
+    width: 100%;
+  }
+}
+
+.save-section {
+  flex-grow: 1;
+  width: 100%;
+}
+
+p {
+  @include body-m;
+  color: $main-purple;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.form-status-section {
+  width: 100%;
+
+  p {
+    @include body-m;
+    color: $red;
+  }
+}

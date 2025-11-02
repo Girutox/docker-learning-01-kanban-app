@@ -1,0 +1,63 @@
+@import '../../../styles/variables';
+
+.custom-button {
+  border-radius: 24px;
+  padding: 15px 20px;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus {
+    outline: 1px solid $main-purple;
+  }
+}
+
+.large-size {
+  @include heading-m;
+}
+
+.small-size {
+  @include body-m;
+}
+
+.primary-mode {
+  background-color: $main-purple;
+  color: $white;
+
+  &:hover {
+    background-color: $main-purple-hover;
+  }
+}
+
+.secondary-mode {
+  background-color: rgba($main-purple, 0.1);
+  color: $main-purple;
+
+  &:hover {
+    background-color: rgba($main-purple, 0.25);
+  }
+}
+
+.destructive-mode {
+  background-color: $red;
+  color: $white;
+
+  &:hover {
+    background-color: $red-hover;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+:host(.show-sidebar-button) .custom-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  padding-left: 10px;
+}

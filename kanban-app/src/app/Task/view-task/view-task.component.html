@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h2 class="custom-modal-title">{{task().title}}</h2>
+  <div class="menu-ellipsis">
+    <div class="pseudo-button" (click)="onToggleFloatingCard()">
+      <app-icon-vertical-ellipsis />
+    </div>
+    @if (showFloatingCard()) {
+    <app-floating-card (hideCard)="onHideCard()">
+      <ul class="floating-card-list">
+        <li>
+          <button (click)="onEditTask()">Edit Task</button>
+        </li>
+        <li class="delete-option">
+          <button (click)="onDeleteTask()">Delete Task</button>
+        </li>
+      </ul>
+    </app-floating-card>
+    }
+  </div>
+</div>
+<div class="modal-body">
+  <form class="custom-form" [formGroup]="form">
+    <p class="task-description">{{task().description}}</p>
+    <div class="subtasks-section">
+      <p class="subtasks-status">Subtasks ({{getCompletedSubtaskCount}} of {{task().subtasks.length}})</p>
+      <div class="subtask-items" formArrayName="subtasks">
+        @for (task of getSubtasksControls; track $index) {
+        <div class="subtask-item" [formGroupName]="$index" (click)="onSetCheckedRow(task)">
+          <input type="checkbox" class="subtask-item-checkbox" formControlName="isCompleted" #isCompleted
+            (change)="onControlChange()" />
+          <p class="subtask-item-title"
+            [ngClass]="{'completed': task.controls.isCompleted.value, 'incomplete': !task.controls.isCompleted.value}">
+            {{task.controls.title.value}}
+          </p>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="currentStatus">Current Status</label>
+      <app-custom-select [options]="getStatusOptions()" [form]="form" customFormControlName="status" (customChange)="onControlChange()" />
+    </div>
+  </form>
+</div>

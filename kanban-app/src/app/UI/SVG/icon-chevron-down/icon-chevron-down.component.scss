@@ -1,0 +1,15 @@
+@import '../../../../styles/variables';
+
+:host {
+  cursor: pointer;
+
+  color: $main-purple;
+}
+
+:host(.down-arrow) {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+
+  pointer-events: none;
+}

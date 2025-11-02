@@ -1,0 +1,174 @@
+@import './styles/variables';
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'PlusJakartaSans-Regular';
+  src: url('./assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlusJakartaSans-Medium';
+  src: url('./assets/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlusJakartaSans-Bold';
+  src: url('./assets/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlusJakartaSans-ExtraBold';
+  src: url('./assets/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/***** CSS Reset *****/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'PlusJakartaSans-Regular', sans-serif;
+  color: $medium-grey;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  line-height: normal;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+  outline: none;
+}
+
+/*********************/
+
+h1 {
+  @include heading-xl;
+}
+
+h2 {
+  @include heading-l;
+}
+
+h3 {
+  @include heading-m;
+}
+
+h4 {
+  @include heading-s;
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  // position: relative;
+
+  label {
+    @include body-m;
+    color: $medium-grey;
+  }
+
+  input, textarea {
+    @include body-l;
+    color: $black;
+    
+    &::placeholder {
+      color: rgba($black, 0.25);
+    }
+
+    &.ng-touched.ng-invalid {
+      border: 1px solid $red;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border: 1px solid $main-purple;
+    }
+  }
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.sidebar-modal {
+  margin-top: 110px;
+}

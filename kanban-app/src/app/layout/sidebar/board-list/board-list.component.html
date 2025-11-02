@@ -1,0 +1,9 @@
+<h4>ALL BOARDS ({{boards().length}})</h4>
+<ul class="board-list-content">
+  @for (board of boards() | orderBy: 'id'; track $index) {
+    <app-board-list-item [boardId]="board.id" [boardName]="board.name" />
+  }
+</ul>
+<ul>
+  <app-board-list-item boardName="+ Create New Board" [createMode]="true" (createNewBoard)="onCreateNewBoard()" />
+</ul>

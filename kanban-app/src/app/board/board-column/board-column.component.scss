@@ -1,0 +1,42 @@
+@import '../../../styles/variables';
+
+:host {
+  text-align: left;
+  min-width: 280px;
+  max-width: 280px;
+
+  max-height: 800px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: auto;
+}
+
+.status-container {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+}
+
+.columns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  flex-grow: 1;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-color: $light-grey;
+}

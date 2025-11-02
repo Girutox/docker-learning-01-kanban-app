@@ -1,0 +1,17 @@
+<div class="status-container">
+  @if (status() != undefined) {
+  <div class="circle" #circleElement></div>
+  }
+  <h4>{{(status() == undefined ? '&nbsp;' : status() + ' (' + tasks()?.length + ')')}}</h4>
+</div>
+<div class="columns-container">
+  @if (tasks()?.length === 0) {
+    <app-board-empty-column [isNewColumn]="false" />
+  } @else if (status() == undefined) {
+    <app-board-empty-column [isNewColumn]="true" />
+  } @else {
+    @for (task of tasks(); track $index) {
+      <app-board-task [task]="task" [columnName]="status()" />
+    }
+  }
+</div>

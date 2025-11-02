@@ -1,0 +1,93 @@
+@import '../../../styles/variables';
+
+:host {
+  border-bottom: 2px solid $lines-light;
+
+  display: flex;
+  align-items: center;
+
+  background-color: $white;
+}
+
+.logo {
+  border-right: 2px solid $lines-light;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 25px;
+
+  cursor: pointer;
+
+  @media (max-width: $mobile-m-size) {
+    border-right: none;
+    padding: 0 5px 0 15px;
+  }
+}
+
+.title-section {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 25px;
+
+  @media (max-width: $mobile-m-size) {
+    padding: 25px 25px 25px 10px;
+  }
+
+  .title-search-group {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    h1 {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: $mobile-m-size) {  
+      h1 {
+        @include heading-l;
+        max-width: 200px;
+      }
+    }
+
+    .choose-board-mobile {
+      @include heading-m;
+      color: $medium-grey !important;
+    }
+  }
+}
+
+.last-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .menu-ellipsis {
+    position: relative;
+
+    .pseudo-button {
+      cursor: pointer;
+    }
+
+    .floating-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include body-l;
+
+      .delete-option {
+        color: $red;
+      }
+    }
+  }
+}

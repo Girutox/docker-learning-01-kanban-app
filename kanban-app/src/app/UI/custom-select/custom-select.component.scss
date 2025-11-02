@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+
+.form {
+  position: relative;
+}
+
+.custom-select {
+  @include body-l;
+  color: $black;
+
+  padding: 10px 30px 10px 10px;
+  box-shadow: none;
+
+  border: 1px solid rgba(#828FA3, 0.25);
+
+  border-radius: 4px;
+
+  outline: none;
+
+  &:focus {
+    border-color: $main-purple;
+  }
+}

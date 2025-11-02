@@ -1,0 +1,13 @@
+@if (!createMode()) {
+  <li (click)="onItemClick()" [ngClass]="{'active': boardId() == boardService.activeBoardId()}">
+    <div class="item-content">
+      <app-icon-board /><span>{{boardName()}}</span>
+    </div>
+  </li>
+} @else {
+  <li class="create-mode-item" (click)="onCreateNewBoard()">
+    <div class="item-content">
+      <app-icon-board /><span>{{boardName()}}</span>
+    </div>
+  </li>
+}

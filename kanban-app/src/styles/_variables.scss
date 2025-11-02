@@ -1,0 +1,57 @@
+$black: #000112;
+$very-dark-grey: #20212C;
+$dark-grey: #2B2C37;
+$lines-dark: #3E3F4E;
+$medium-grey: #828FA3;
+$lines-light: #E4EBFA;
+$light-grey: #F4F7FD;
+$white: #FFFFFF;
+$main-purple: #635FC7;
+$main-purple-hover: #A8A4FF;
+$red: #EA5555;
+$red-hover: #FF9898;
+
+$mobile-m-size: 750px;
+
+@mixin heading-xl {
+  font-family: 'PlusJakartaSans-Bold', sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  color:  $black;
+}
+
+@mixin heading-l {
+  font-family: 'PlusJakartaSans-Bold', sans-serif;
+  font-size: 18px;
+  line-height: 23px;
+  color:  $black;
+}
+
+@mixin heading-m {
+  font-family: 'PlusJakartaSans-Bold', sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  color:  $black;
+}
+
+@mixin heading-s {
+  font-family: 'PlusJakartaSans-Bold', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: $medium-grey;
+  letter-spacing: 2.4px;
+}
+
+@mixin body-l {
+  font-family: 'PlusJakartaSans-Medium', sans-serif;
+  font-size: 13px;
+  line-height: 23px;
+  color: $medium-grey;
+}
+
+@mixin body-m {
+  font-family: 'PlusJakartaSans-Bold', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: $medium-grey;
+}

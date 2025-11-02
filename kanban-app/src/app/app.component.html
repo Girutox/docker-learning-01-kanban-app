@@ -1,0 +1,19 @@
+@if (!isMobileMediumSize()) {
+@if (!hideSidebar) {
+<app-sidebar (hideSidebar)="onHideSidebar()" />
+} @else {
+<app-show-sidebar (showSidebar)="onShowSidebar()" />
+}
+}
+
+<section class="main-content">
+  <app-header [sidebarHidden]="hideSidebar" />
+  <router-outlet />
+</section>
+
+@if (loaderService.isLoading$()) {
+  <div class="loader-container">
+    <div class="loader"></div>
+    <p>Loading...</p>
+  </div>
+}

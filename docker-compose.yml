@@ -1,0 +1,54 @@
+services:
+  db:
+    image: postgres:15
+    container_name: kanban_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: kanban-db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # optional: place initialization SQL files in ./db/init
+      - ./kanban-db/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./kanban-api
+    container_name: kanban_api
+    env_file:
+      - ./kanban-api/.env
+    environment:
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=root
+      - DB_NAME=kanban-db
+    depends_on:
+      - db
+    ports:
+      - "5001:5000"
+    restart: on-failure
+
+  ui:
+    build: ./kanban-app
+    container_name: kanban_ui
+    depends_on:
+      - api
+    ports:
+      - "4200:80"
+    # mount the custom nginx config to enable /api -> api:5000 proxying
+    volumes:
+      - ./kanban-app/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  db_data:
+
+networks:
+  myapp-network:
+    driver: bridge

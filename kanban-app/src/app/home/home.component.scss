@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+:host {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  color: $medium-grey;
+}

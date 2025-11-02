@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h2 class="custom-modal-title">{{isNew() ? 'Add New' : 'Edit'}} Task</h2>
+</div>
+<div class="modal-body">
+  <form class="custom-form" [formGroup]="form">
+    <div class="form-group">
+      <label for="title">Title (*)</label>
+      <input type="text" class="form-control" formControlName="title" placeholder="e.g. Take coffee break" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description (*)</label>
+      <textarea class="form-control" formControlName="description" rows="5" placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little.">
+    </textarea>
+    </div>
+    <div class="form-group">
+      <label for="subtasks">Subtasks (*)</label>
+      @if (form.controls.subtasks.controls.length == 0) {
+        <p>Start adding subtasks! 👇</p>
+      } @else {
+      <div id="subtasks" formArrayName="subtasks" class="subtask-list">
+        <div class="subtask-section" *ngFor="let subtask of getSubtasksControls; let i = index" [formGroupName]="i">
+          <input type="text" class="form-control" formControlName="title" placeholder="(*) Title is required">
+          <button (click)="onRemoveSubtask(i)">
+            <app-icon-cross />
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="add-new-subtask-section">
+      <app-custom-button mode="secondary" size="large" (customClick)="onAddNewSubtask()">
+        + Add New Subtask
+      </app-custom-button>
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <app-custom-select [options]="getStatusOptions()" [form]="form" customFormControlName="status" />
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <div class="form-status-section">
+    @if (form.invalid && form.touched) {
+    <p>* Please complete all the required form values</p>
+    }
+  </div>
+  <div class="save-section">
+    <app-custom-button mode="primary" size="large" (customClick)="onSave()" [disabled]="form.invalid">
+      {{isNew() ? 'Create New Subtask' : 'Save Changes'}}
+    </app-custom-button>
+  </div>
+</div>

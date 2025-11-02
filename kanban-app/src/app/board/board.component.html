@@ -1,0 +1,15 @@
+@if (boardColumns().length == 0) {
+<div class="empty-board-content">
+  <h2>This board is empty. Create a new column to get started.</h2>
+  <app-custom-button mode="primary" size="large" (customClick)="onAddNewColumn()">
+    + Add New Column
+  </app-custom-button>
+</div>
+} @else {
+<div class="board-content">
+  @for (column of boardColumns(); track $index) {
+  <app-board-column [status]="column.name" [statusColor]="column.color" [tasks]="column.tasks" />
+  }
+  <app-board-column />
+</div>
+}

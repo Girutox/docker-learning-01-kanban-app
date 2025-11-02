@@ -1,0 +1,14 @@
+<button class="custom-button" [ngClass]="{
+  'primary-mode': mode() === 'primary',
+  'secondary-mode': mode() === 'secondary',
+  'destructive-mode': mode() === 'destructive',
+
+  'large-size': size() === 'large',
+  'small-size': size() === 'small',
+
+  'disabled': disabled()
+  }"
+  [type]="type()"
+  (click)="onClick()">
+  <ng-content></ng-content>
+</button>

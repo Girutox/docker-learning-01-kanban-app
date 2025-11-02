@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+
+.custom-modal-title {
+  color: $red;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
