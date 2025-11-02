@@ -28,6 +28,36 @@ Key files:
 
 This project was tested on Windows with PowerShell but should work on macOS and Linux as well.
 
+# Kanban App (Docker learning project)
+
+This repository contains a simple Kanban web application split into three services and orchestrated with Docker Compose:
+
+- `kanban-api`: Node/Express API that stores/retrieves boards and tasks from a PostgreSQL database.
+- `kanban-app`: Angular front-end served by Nginx.
+- `kanban-db`: PostgreSQL database with optional initialization SQL scripts.
+
+The compose setup is configured to make it easy to run the whole stack locally.
+
+## Repository structure
+
+Top-level folders:
+
+- `kanban-api/` – Express API source, database models and routes.
+- `kanban-app/` – Angular application and static web server config (nginx).
+- `kanban-db/` – database init scripts (SQL files mounted into the postgres container).
+
+Key files:
+
+- `docker-compose.yml` – orchestrates the `db`, `api` and `ui` services.
+- `kanban-api/.env` – environment variables used by the API service (port and DB connection settings).
+
+## Prerequisites
+
+- Docker and Docker Compose installed on your machine.
+- (Optional) Git to clone or pull updates.
+
+This project was tested on Windows with PowerShell but should work on macOS and Linux as well.
+
 ## Quick start (recommended)
 
 From the repository root run:
@@ -171,3 +201,13 @@ docker-compose logs -f db
 ## License
 
 This repository is provided as-is for learning and demo purposes.
+
+---
+
+If you'd like, I can also:
+
+- Add a short CONTRIBUTING.md with local dev setup steps.
+- Add examples of curl commands for each endpoint.
+- Add a small Makefile or PowerShell script to simplify common tasks (build, up, down).
+
+Tell me which of these you'd like next.
