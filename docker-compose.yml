@@ -1,14 +1,14 @@
 services:
   db:
-    image: postgres:15
-    container_name: kanban_db
+    image: postgres:17
+    container_name: kanban_db_no_volume
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: kanban-db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      # - db_data_test_01:/var/lib/postgresql/data
       # optional: place initialization SQL files in ./db/init
       - ./kanban-db/init:/docker-entrypoint-initdb.d:ro
     ports:
@@ -21,7 +21,7 @@ services:
 
   api:
     build: ./kanban-api
-    container_name: kanban_api
+    container_name: kanban_api_no_volume
     env_file:
       - ./kanban-api/.env
     environment:
@@ -37,7 +37,7 @@ services:
 
   ui:
     build: ./kanban-app
-    container_name: kanban_ui
+    container_name: kanban_ui_no_volume
     depends_on:
       - api
     ports:
@@ -46,8 +46,8 @@ services:
     volumes:
       - ./kanban-app/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
-volumes:
-  db_data:
+# volumes:
+#   db_data_test_01:
 
 networks:
   myapp-network:
