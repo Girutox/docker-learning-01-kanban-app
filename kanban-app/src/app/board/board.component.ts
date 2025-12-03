@@ -47,7 +47,7 @@ export class BoardComponent implements OnInit {
 
   onAddNewColumn() {
     const modalRef = this.modalService.open(ManageBoardComponent, { centered: true });
-    modalRef.componentInstance.isNew = signal(false);
+    modalRef.componentInstance.isNew = signal(false);    
     modalRef.componentInstance.id = this.boardId;
   }
 }

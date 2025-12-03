@@ -17,8 +17,6 @@ export class BoardService {
 
   activeBoardId = signal<number | null>(null);
 
-  fireBaseBoardUID = "";
-
   constructor() {
     const activeBoardId = window.localStorage.getItem('activeBoardId');
     if (activeBoardId) {
